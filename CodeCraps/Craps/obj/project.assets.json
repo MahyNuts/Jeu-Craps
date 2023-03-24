@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\210305\\.nuget\\packages\\": {},
+    "C:\\Users\\210305.asty-moulin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\Jeu-Craps\\CodeCraps\\Craps\\Craps.csproj",
+      "projectUniqueName": "C:\\Users\\210305.asty-moulin\\Desktop\\Nouveau dossier\\Jeu-Craps\\CodeCraps\\Craps\\Craps.csproj",
       "projectName": "Craps",
-      "projectPath": "H:\\Jeu-Craps\\CodeCraps\\Craps\\Craps.csproj",
-      "packagesPath": "C:\\Users\\210305\\.nuget\\packages\\",
-      "outputPath": "H:\\Jeu-Craps\\CodeCraps\\Craps\\obj\\",
+      "projectPath": "C:\\Users\\210305.asty-moulin\\Desktop\\Nouveau dossier\\Jeu-Craps\\CodeCraps\\Craps\\Craps.csproj",
+      "packagesPath": "C:\\Users\\210305.asty-moulin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\210305.asty-moulin\\Desktop\\Nouveau dossier\\Jeu-Craps\\CodeCraps\\Craps\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\210305\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\210305.asty-moulin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

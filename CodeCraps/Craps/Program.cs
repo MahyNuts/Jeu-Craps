@@ -11,7 +11,7 @@ namespace Craps
             int de1;
             int de2;
             int sommeDes;
-            int saveSomme;
+            int saveSomme = 0;
             @base bases = new @base();
             Console.WriteLine("Vous commencez avec " + tokens + " jetons.");
             Console.WriteLine("");
@@ -20,40 +20,7 @@ namespace Craps
             bases.lanceDes(out de1, out de2, out sommeDes);
             Console.WriteLine("Les dés tirés sont : "+de1+" et "+de2+".");
             Console.WriteLine("La somme des dés est de " + sommeDes + ".");
-            if(sommeDes==7 || sommeDes == 11)
-            {
-                tokens = tokens + mise;
-            }
-            else
-            {
-                if (sommeDes == 2 || sommeDes == 3 || sommeDes == 12)
-                {
-                    tokens = tokens - mise;
-                }
-                else
-                {
-                    saveSomme = sommeDes;
-                    while(sommeDes != saveSomme || sommeDes == 7 || sommeDes == 11 || sommeDes == 2 || sommeDes == 3 || sommeDes == 12)
-                    {
-                        bases.lanceDes(out de1, out de2, out sommeDes);
-                    }
-                    if(sommeDes == saveSomme)
-                    {
-                        Console.WriteLine("Vous êtes tombé sur la somme exacte. Vous remportez votre mise."); 
-                    }
-                    else
-                    {
-                        if (sommeDes == 7 || sommeDes == 11)
-                        {
-                            Console.WriteLine("Vous êtes tombé sur " + sommeDes + ". Vous remportez votre mise.");
-                        }
-                        else (sommeDes == 2 || sommeDes == 3 || sommeDes == 12)
-                        {
-
-                        }
-                    }
-                }
-            }
+            bases.VerifSomme(sommeDes, de1, de2, mise, saveSomme, ref tokens);
 
         }
     }
