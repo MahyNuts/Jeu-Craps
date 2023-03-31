@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Craps
 {
-    public struct @base
+    public struct sousProgrammes
     {
         public void miseJoueur(int tokens, out int mise)
         {
