@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Craps
 {
@@ -13,10 +14,13 @@ namespace Craps
             int saveSomme = 0;
             int nbJoueurs;
             bool fin = false;
+            string[] pseudonyme;
             sousProgrammes sousP = new sousProgrammes();
             joueurs joueurs = new joueurs();
+            des des = new des();
 
             joueurs.AjoutJoueurs(out nbJoueurs);
+            joueurs.choixPseudo(nbJoueurs, out pseudonyme);
 
             int[] tokens = new int[nbJoueurs];
             sousP.distTokens(nbJoueurs, ref tokens);
@@ -26,17 +30,24 @@ namespace Craps
                 for (int j = 0; j < nbJoueurs; j++)
                 {
                     int numJoueur = j + 1;
-                    Console.WriteLine("Joueur " + numJoueur + " à vous !");
+                    Console.WriteLine(pseudonyme[j] + " à vous !");
 
                     if (tokens[j] > 0)
                     {
-                        Console.WriteLine("Vous avez " + tokens[j] + " jetons.");
+                        Console.Write("Vous avez ");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write(tokens[j]);
+                        Console.ResetColor();
+                        Console.Write(" jetons.");
                         Console.WriteLine("");
                         sousP.miseJoueur(j, tokens, out mise);
                         Console.WriteLine("");
                         sousP.lanceDes(out de1, out de2, out sommeDes);
+                        des.affichDes(de1, de2);
+                        Console.WriteLine("");
                         Console.WriteLine("Les dés tirés sont " + de1 + " et " + de2 + ".");
                         Console.WriteLine("La somme des dés est de " + sommeDes + ".");
+                        Console.WriteLine("");
                         sousP.VerifSomme(j, sommeDes, de1, de2, mise, saveSomme, ref tokens);
                         Console.WriteLine("");
                     }
@@ -58,8 +69,11 @@ namespace Craps
                     {
                         fin = true;
                     }
+                    Console.WriteLine("Appuyez sur ENTER pour continuer.");
+                    Console.ReadLine();
+                    Console.Clear();
                 }
-            } while ();
+            } while (fin == false);
         }
     }
 }

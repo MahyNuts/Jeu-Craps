@@ -46,18 +46,23 @@ namespace Craps
 
         public void VerifSomme(int j, int sommeDes, int de1, int de2, int mise, int saveSomme, ref int[] tokens)
         {
+            des des = new des();
 
             if (sommeDes == 7 || sommeDes == 11)
             {
                 tokens[j] += mise;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Vous êtes tombé sur " + sommeDes + ". Vous remportez votre mise.");
+                Console.ResetColor();
             }
             else
             {
                 if (sommeDes == 2 || sommeDes == 3 || sommeDes == 12)
                 {
                     tokens[j] -= mise;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Vous êtes tombé sur " + sommeDes + ". Vous perdez votre mise.");
+                    Console.ResetColor();
                 }
                 else
                 {
@@ -69,21 +74,30 @@ namespace Craps
                     } while (sommeDes != saveSomme && sommeDes != 7 && sommeDes != 11 && sommeDes != 2 && sommeDes != 3 && sommeDes != 12);
                     if (sommeDes == saveSomme)
                     {
-                        Console.WriteLine("Ouf ! Vous êtes tombé sur "+saveSomme+". Vous remportez votre mise.");
+                        des.affichDes(de1, de2);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Ouf ! Vous êtes retombé sur "+saveSomme+". Vous remportez votre mise.");
+                        Console.ResetColor();
                         tokens[j] += mise;
                     }
                     else
                     {
                         if (sommeDes == 7 || sommeDes == 11)
                         {
+                            des.affichDes(de1, de2);
+                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Vous n'êtes pas tombé sur " + saveSomme + " mais sur " + sommeDes + ". La chance vous sourit. Vous remportez votre mise.");
+                            Console.ResetColor();
                             tokens[j] += mise;
                         }
                         else
                         {
                             if (sommeDes == 2 || sommeDes == 3 || sommeDes == 12)
                             {
+                                des.affichDes(de1, de2);
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Vous n'êtes pas tombé sur " + saveSomme + " mais sur " + sommeDes + ". Désolé mais vous perdez votre mise.");
+                                Console.ResetColor();
                                 tokens[j] -= mise;
                             }
                         }
