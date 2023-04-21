@@ -20,60 +20,126 @@ namespace Craps
             des des = new des();
 
             joueurs.AjoutJoueurs(out nbJoueurs);
-            joueurs.choixPseudo(nbJoueurs, out pseudonyme);
+            
 
-            int[] tokens = new int[nbJoueurs];
-            sousP.distTokens(nbJoueurs, ref tokens);
+            
+            
 
-            do
+            if (nbJoueurs > 1)
             {
-                for (int j = 0; j < nbJoueurs; j++)
+                joueurs.choixPseudo(nbJoueurs, out pseudonyme);
+                int[] tokens = new int[nbJoueurs];
+                sousP.distTokens(nbJoueurs, ref tokens);
+                bool bot = false;
+                do
                 {
-                    int numJoueur = j + 1;
-                    Console.WriteLine(pseudonyme[j] + " à vous !");
+                    for (int j = 0; j < nbJoueurs; j++)
+                    {
+                        int numJoueur = j + 1;
+                        Console.WriteLine(pseudonyme[j] + " à vous !");
 
-                    if (tokens[j] > 0)
-                    {
-                        Console.Write("Vous avez ");
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write(tokens[j]);
-                        Console.ResetColor();
-                        Console.Write(" jetons.");
-                        Console.WriteLine("");
-                        sousP.miseJoueur(j, tokens, out mise);
-                        Console.WriteLine("");
-                        sousP.lanceDes(out de1, out de2, out sommeDes);
-                        des.affichDes(de1, de2);
-                        Console.WriteLine("");
-                        Console.WriteLine("Les dés tirés sont " + de1 + " et " + de2 + ".");
-                        Console.WriteLine("La somme des dés est de " + sommeDes + ".");
-                        Console.WriteLine("");
-                        sousP.VerifSomme(j, sommeDes, de1, de2, mise, saveSomme, ref tokens);
-                        Console.WriteLine("");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Passez votre tour, vous n'avez plus de jetons.");
-                    }
-
-                    int verifUneValeure = 0;
-                    
-                    for(int i = 0; i < nbJoueurs; i++)//Verification une seule case de la table est positive
-                    {
-                        if(tokens[i] > 0)
+                        if (tokens[j] > 0)
                         {
-                            verifUneValeure += 1;
+                            Console.Write("Vous avez ");
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write(tokens[j]);
+                            Console.ResetColor();
+                            Console.Write(" jetons.");
+                            Console.WriteLine("");
+                            sousP.miseJoueur(bot, j, tokens, out mise);
+                            Console.WriteLine("");
+                            sousP.lanceDes(out de1, out de2, out sommeDes);
+                            des.affichDes(de1, de2);
+                            Console.WriteLine("");
+                            Console.WriteLine("Les dés tirés sont " + de1 + " et " + de2 + ".");
+                            Console.WriteLine("La somme des dés est de " + sommeDes + ".");
+                            Console.WriteLine("");
+                            sousP.VerifSomme(j, sommeDes, de1, de2, mise, saveSomme, ref tokens);
+                            Console.WriteLine("");
                         }
+                        else
+                        {
+                            Console.WriteLine("Passez votre tour, vous n'avez plus de jetons.");
+                        }
+
+                        int verifUneValeure = 0;
+
+                        for (int i = 0; i < nbJoueurs; i++)//Verification une seule case de la table est positive
+                        {
+                            if (tokens[i] > 0)
+                            {
+                                verifUneValeure += 1;
+                            }
+                        }
+                        if (verifUneValeure == 1)
+                        {
+                            fin = true;
+                        }
+                        Console.WriteLine("Appuyez sur ENTER pour continuer.");
+                        Console.ReadLine();
+                        Console.Clear();
                     }
-                    if(verifUneValeure == 1)
+                } while (fin == false);
+            }
+            else
+            {
+                joueurs.choixPseudo(nbJoueurs, out pseudonyme);
+                nbJoueurs += 1;
+                int[] tokens = new int[nbJoueurs];
+                sousP.distTokens(nbJoueurs, ref tokens);
+                bool bot = true;
+                
+                do
+                {
+                    for (int j = 0; j < nbJoueurs; j++)
                     {
-                        fin = true;
+                        int numJoueur = j + 1;
+                        Console.WriteLine(pseudonyme[j] + " à vous !");
+
+                        if (tokens[j] > 0)
+                        {
+                            Console.Write("Vous avez ");
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write(tokens[j]);
+                            Console.ResetColor();
+                            Console.Write(" jetons.");
+                            Console.WriteLine("");
+                            sousP.miseJoueur(bot, j, tokens, out mise);
+                            Console.WriteLine("");
+                            sousP.lanceDes(out de1, out de2, out sommeDes);
+                            des.affichDes(de1, de2);
+                            Console.WriteLine("");
+                            Console.WriteLine("Les dés tirés sont " + de1 + " et " + de2 + ".");
+                            Console.WriteLine("La somme des dés est de " + sommeDes + ".");
+                            Console.WriteLine("");
+                            sousP.VerifSomme(j, sommeDes, de1, de2, mise, saveSomme, ref tokens);
+                            Console.WriteLine("");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Passez votre tour, vous n'avez plus de jetons.");
+                        }
+
+                        int verifUneValeure = 0;
+
+                        for (int i = 0; i < nbJoueurs; i++)//Verification une seule case de la table est positive
+                        {
+                            if (tokens[i] > 0)
+                            {
+                                verifUneValeure += 1;
+                            }
+                        }
+                        if (verifUneValeure == 1)
+                        {
+                            fin = true;
+                        }
+                        Console.WriteLine("Appuyez sur ENTER pour continuer.");
+                        Console.ReadLine();
+                        Console.Clear();
                     }
-                    Console.WriteLine("Appuyez sur ENTER pour continuer.");
-                    Console.ReadLine();
-                    Console.Clear();
-                }
-            } while (fin == false);
+                } while (fin == false);
+            }
+            
         }
     }
 }

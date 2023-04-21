@@ -6,34 +6,42 @@ namespace Craps
 {
     public struct sousProgrammes
     {
-        public void miseJoueur(int j, int[] tokens, out int mise)
+        public void miseJoueur(bool bot, int j, int[] tokens, out int mise)
         {
-            do
+            if(bot == false)
             {
-                Console.WriteLine("Combien voulez-vous misez ? ");
-                int.TryParse(Console.ReadLine(), out mise);
-                if (mise == 0)
+                do
                 {
-                    Console.WriteLine("Impossible de ne rien miser.");
-                }
-                else
-                {
-                    if (mise < 0)
+                    Console.WriteLine("Combien voulez-vous misez ? ");
+                    int.TryParse(Console.ReadLine(), out mise);
+                    if (mise == 0)
                     {
-                        Console.WriteLine("Pas la peine d'essayer.");
+                        Console.WriteLine("Impossible de ne rien miser.");
                     }
                     else
                     {
-                        if (mise > 10)
+                        if (mise < 0)
                         {
-                            Console.WriteLine("Vous n'avez pas assez de jetons");
+                            Console.WriteLine("Pas la peine d'essayer.");
+                        }
+                        else
+                        {
+                            if (mise > 10)
+                            {
+                                Console.WriteLine("Vous n'avez pas assez de jetons");
+                            }
                         }
                     }
-                }
-                Console.WriteLine("");
-            } while (mise > tokens[j] || mise < 1);
+                    Console.WriteLine("");
+                } while (mise > tokens[j] || mise < 1);
 
-            Console.WriteLine("Vous misez " + mise + " jetons.");
+                Console.WriteLine("Vous misez " + mise + " jetons.");
+            }
+            else
+            {
+
+            }
+
         }
 
         public void lanceDes(out int de1, out int de2, out int sommeDes)

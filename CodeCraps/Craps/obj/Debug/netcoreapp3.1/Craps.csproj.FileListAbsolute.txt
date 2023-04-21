@@ -40,3 +40,17 @@ C:\Users\thech\Desktop\Ecole\GitHub\Jeu-Craps\CodeCraps\Craps\bin\Debug\netcorea
 C:\Users\thech\Desktop\Ecole\GitHub\Jeu-Craps\CodeCraps\Craps\bin\Debug\netcoreapp3.1\Craps.dll
 C:\Users\thech\Desktop\Ecole\GitHub\Jeu-Craps\CodeCraps\Craps\bin\Debug\netcoreapp3.1\Craps.pdb
 C:\Users\thech\Desktop\Ecole\GitHub\Jeu-Craps\CodeCraps\Craps\obj\Debug\netcoreapp3.1\Craps.genruntimeconfig.cache
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\bin\Debug\netcoreapp3.1\Craps.exe
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\bin\Debug\netcoreapp3.1\Craps.deps.json
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\bin\Debug\netcoreapp3.1\Craps.runtimeconfig.json
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\bin\Debug\netcoreapp3.1\Craps.runtimeconfig.dev.json
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\bin\Debug\netcoreapp3.1\Craps.dll
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\bin\Debug\netcoreapp3.1\Craps.pdb
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\obj\Debug\netcoreapp3.1\Craps.csproj.AssemblyReference.cache
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\obj\Debug\netcoreapp3.1\Craps.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\obj\Debug\netcoreapp3.1\Craps.AssemblyInfoInputs.cache
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\obj\Debug\netcoreapp3.1\Craps.AssemblyInfo.cs
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\obj\Debug\netcoreapp3.1\Craps.csproj.CoreCompileInputs.cache
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\obj\Debug\netcoreapp3.1\Craps.dll
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\obj\Debug\netcoreapp3.1\Craps.pdb
+C:\Users\210305\Desktop\Jeu-Craps\CodeCraps\Craps\obj\Debug\netcoreapp3.1\Craps.genruntimeconfig.cache
