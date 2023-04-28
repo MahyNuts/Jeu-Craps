@@ -20,16 +20,12 @@ namespace Craps
             des des = new des();
 
             joueurs.AjoutJoueurs(out nbJoueurs);
-            
-
-            
-            
 
             if (nbJoueurs > 1)
             {
                 joueurs.choixPseudo(nbJoueurs, out pseudonyme);
                 int[] tokens = new int[nbJoueurs];
-                sousP.distTokens(nbJoueurs, ref tokens);
+                sousP.distTokens(pseudonyme, nbJoueurs, ref tokens);
                 bool bot = false;
                 do
                 {
@@ -80,15 +76,17 @@ namespace Craps
                         Console.Clear();
                     }
                 } while (fin == false);
+
             }
+
             else
             {
                 joueurs.choixPseudo(nbJoueurs, out pseudonyme);
                 nbJoueurs += 1;
                 int[] tokens = new int[nbJoueurs];
-                sousP.distTokens(nbJoueurs, ref tokens);
+                sousP.distTokens(pseudonyme, nbJoueurs, ref tokens);
                 bool bot = true;
-                
+
                 do
                 {
                     for (int j = 0; j < nbJoueurs; j++)
@@ -137,9 +135,8 @@ namespace Craps
                         Console.ReadLine();
                         Console.Clear();
                     }
-                } while (fin == false);
+                } while (fin == false); 
             }
-            
         }
     }
 }
