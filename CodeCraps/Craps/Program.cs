@@ -15,9 +15,17 @@ namespace Craps
             int nbJoueurs;
             bool fin = false;
             string[] pseudonyme;
+            int difficulty = 0;
+            int validRegle;
             sousProgrammes sousP = new sousProgrammes();
             joueurs joueurs = new joueurs();
             des des = new des();
+
+            do
+            {
+                Console.WriteLine("Connaissez-vous les règles ?\n1 - Oui\n2 - Non");
+                tryparse;
+            } while (validRegle < 1 || validRegle > 2);
 
             joueurs.AjoutJoueurs(out nbJoueurs);
 
@@ -42,7 +50,7 @@ namespace Craps
                             Console.ResetColor();
                             Console.Write(" jetons.");
                             Console.WriteLine("");
-                            sousP.miseJoueur(bot, j, tokens, out mise);
+                            sousP.miseJoueur(bot, j, tokens, difficulty, out mise);
                             Console.WriteLine("");
                             sousP.lanceDes(out de1, out de2, out sommeDes);
                             des.affichDes(de1, de2);
@@ -76,6 +84,7 @@ namespace Craps
                         Console.Clear();
                     }
                 } while (fin == false);
+                joueurs.winner(nbJoueurs, tokens, pseudonyme);
 
             }
 
@@ -85,6 +94,7 @@ namespace Craps
                 nbJoueurs += 1;
                 int[] tokens = new int[nbJoueurs];
                 sousP.distTokens(pseudonyme, nbJoueurs, ref tokens);
+                sousP.botDifficulty(out difficulty);
                 bool bot = true;
 
                 do
@@ -102,7 +112,7 @@ namespace Craps
                             Console.ResetColor();
                             Console.Write(" jetons.");
                             Console.WriteLine("");
-                            sousP.miseJoueur(bot, j, tokens, out mise);
+                            sousP.miseJoueur(bot, j, tokens, difficulty, out mise);
                             Console.WriteLine("");
                             sousP.lanceDes(out de1, out de2, out sommeDes);
                             des.affichDes(de1, de2);
@@ -135,7 +145,8 @@ namespace Craps
                         Console.ReadLine();
                         Console.Clear();
                     }
-                } while (fin == false); 
+                } while (fin == false);
+                joueurs.winner(nbJoueurs, tokens, pseudonyme);
             }
         }
     }

@@ -6,7 +6,7 @@ namespace Craps
 {
     public struct sousProgrammes
     {
-        public void miseJoueur(bool bot, int j, int[] tokens, out int mise)
+        public void miseJoueur(bool bot, int j, int[] tokens, int difficulty, out int mise)
         {
             Random rand = new Random();
             if(bot == false)
@@ -43,16 +43,58 @@ namespace Craps
             {
                 if (j == 1)
                 {
-                    int MoitieTokens = tokens[j] / 2;
-                    if (tokens[j] > 1)
+                    mise = 0;
+                    if (difficulty == 1 )
                     {
-                        mise = rand.Next(1, MoitieTokens);
+                        if(tokens[j] > 1)
+                        {
+                            int MoitieTokens = tokens[j] / 2;
+                            mise = rand.Next(MoitieTokens, tokens[j]);
+                            
+                        }
+                        else
+                        {
+                            mise = 1;
+                        }
+                        Console.WriteLine("Le joueur virtuel a misé " + mise + " jetons.");
                     }
-                    else
+                    if(difficulty == 2)
                     {
-                        mise = 1;
+                        int cc = rand.Next(1, 20);
+                        if (cc == 20)
+                        {
+                            if(tokens[j] > 1)
+                            {
+                                int MoitieTokens = tokens[j] / 2;
+                                mise = rand.Next(MoitieTokens, tokens[j]);
+                            }
+                            else
+                            {
+                                mise = 1;
+                            }
+                        }
+                        else
+                        {
+                            mise = rand.Next(1, tokens[j]-1);
+                        }
+                        
+                        Console.WriteLine("Le joueur virtuel a misé " + mise + " jetons.");
                     }
-                    Console.WriteLine("Bot a misé " + mise + " jetons.");
+                    if(difficulty == 3)
+                    {
+                        if(tokens[j] > 1)
+                        {
+                            int MoitieTokens = tokens[j] / 2;
+                            mise = rand.Next(1, MoitieTokens);
+                        }
+                        else
+                        {
+                            mise = 1;
+                        }
+                        Console.WriteLine("Le joueur virtuel a misé " + mise + " jetons.");  
+                    }
+                    
+                    
                 }
                 else
                 {
@@ -173,6 +215,22 @@ namespace Craps
             }
  
             
+        }
+
+        public void botDifficulty(out int difficulty)
+        {
+            do
+            {
+                
+                Console.WriteLine("A quelle difficulté voulez-vous mettre votre joueur virtuel ?\n1 - Facile\n2 - Moyen\n3 - Difficile");
+                int.TryParse(Console.ReadLine(), out difficulty);
+                Console.Clear();
+            } while (difficulty < 1 || difficulty > 3);
+        }
+
+        public void reglement(out regles)
+        {
+
         }
     }
 }

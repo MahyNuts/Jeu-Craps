@@ -47,12 +47,38 @@ namespace Craps
                     pseudonyme[0] = Console.ReadLine();
                     Console.Clear();
                 } while (string.IsNullOrWhiteSpace(pseudonyme[0]));
-                pseudonyme[1] = "Bot";
+                pseudonyme[1] = "Joueur virtuel";
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("Un joueur virtuel a été ajouté.\n");
                 Console.ResetColor();
             }
 
+        }
+
+        public void winner(int nbJoueurs, int[] tokens, string[] pseudonyme)
+        {
+            int gagnant = 0;
+            bool exaequo = true;
+
+            for (int i = 0; i < nbJoueurs; i++)
+            {
+                if (tokens[i] > 0)
+                {
+                    gagnant = i;
+                    exaequo = false;
+                }
+            }
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            if (exaequo == true)
+            {
+                Console.WriteLine("Il n'y a aucun gagnant.");
+            }
+            else
+            {
+                Console.WriteLine("Le gagnant est " + pseudonyme[gagnant] + " !");
+            }
+            Console.ResetColor();
         }
     }
 
