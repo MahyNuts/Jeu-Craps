@@ -221,16 +221,48 @@ namespace Craps
         {
             do
             {
-                
+                affichageCraps();
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("Un joueur virtuel a été ajouté.\n");
+                Console.ResetColor();
                 Console.WriteLine("A quelle difficulté voulez-vous mettre votre joueur virtuel ?\n1 - Facile\n2 - Moyen\n3 - Difficile");
                 int.TryParse(Console.ReadLine(), out difficulty);
                 Console.Clear();
             } while (difficulty < 1 || difficulty > 3);
         }
 
-        public void reglement(out regles)
+        public void reglement()
         {
+            int validRegle;
+            do
+            {
+                affichageCraps();
+                Console.WriteLine("Connaissez-vous les règles ?\n1 - Oui\n2 - Non\n");
+                int.TryParse(Console.ReadLine(), out validRegle);
+                Console.Clear();
+            } while (validRegle < 1 || validRegle > 2);
+            if (validRegle == 2)
+            {
+                affichageCraps();
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine(" Chaque joueur débute la partie avec 10 jetons.\n Le but est d'être le dernier joueur à posséder au moins un jeton.\n Vous devez miser un nombre de jetons compris entre 1 et le total de vos jetons.\n\n Si la somme des dés que vous lancez est égale à 7 ou 11, vous gagnez votre mise.\n Par contre, si la somme des dés est de 2, 3 ou 12, vous perdez votre mise.\n Si la somme est différente de ces valeurs,\n vous devez relancer les dés jusqu'à obtenir la même somme que précédemment pour gagner votre mise.\n Il est également possible de tomber sur une somme chanceuse ou malchanceuse dans ce cas là.\n");
+                Console.ResetColor();
+                Console.WriteLine("Appuyez sur ENTER pour continuer.");
+                Console.ReadLine();
+                Console.Clear();
+            }
+        }
 
+        public void affichageCraps()
+        {
+            Console.WriteLine("   _____                     ");
+            Console.WriteLine("  / ____|                    ");
+            Console.WriteLine(" | |     _ __ __ _ _ __  ___ ");
+            Console.WriteLine(" | |    | '__/ _` | '_ \\/ __|");
+            Console.WriteLine(" | |____| | | (_| | |_) \\__ \\");
+            Console.WriteLine("  \\_____|_|  \\__,_| .__/|___/");
+            Console.WriteLine("                  | |        ");
+            Console.WriteLine("                  |_|        \n");
         }
     }
 }

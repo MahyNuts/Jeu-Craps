@@ -16,17 +16,11 @@ namespace Craps
             bool fin = false;
             string[] pseudonyme;
             int difficulty = 0;
-            int validRegle;
             sousProgrammes sousP = new sousProgrammes();
             joueurs joueurs = new joueurs();
             des des = new des();
 
-            do
-            {
-                Console.WriteLine("Connaissez-vous les règles ?\n1 - Oui\n2 - Non");
-                tryparse;
-            } while (validRegle < 1 || validRegle > 2);
-
+            sousP.reglement();
             joueurs.AjoutJoueurs(out nbJoueurs);
 
             if (nbJoueurs > 1)
@@ -39,6 +33,7 @@ namespace Craps
                 {
                     for (int j = 0; j < nbJoueurs; j++)
                     {
+                        sousP.affichageCraps();
                         int numJoueur = j + 1;
                         Console.WriteLine(pseudonyme[j] + " à vous !");
 
@@ -101,6 +96,7 @@ namespace Craps
                 {
                     for (int j = 0; j < nbJoueurs; j++)
                     {
+                        sousP.affichageCraps();
                         int numJoueur = j + 1;
                         Console.WriteLine(pseudonyme[j] + " à vous !");
 
